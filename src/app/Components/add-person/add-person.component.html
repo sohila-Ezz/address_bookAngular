@@ -1,0 +1,70 @@
+<h1>Add Person</h1>
+<form (ngSubmit)="savePerson()">
+    <div class="mb-3">
+        <label for="pName" class="form-label">Name</label>
+        <input #prdName="ngModel" type="text" [(ngModel)]="newPerson.name" class="form-control"
+            [class.is-valid]="prdName.valid" [class.is-invalid]="prdName.invalid && prdName.touched" name="pName"
+            id="PName" placeholder="" required minlength="3">
+        <!-- <div [hidden]="prdName.valid || prdName.untouched">
+        <small *ngIf="prdName.errors?.['required']" id="helpId" class="form-text text-muted d-block">Product Name is Required</small>
+        <small *ngIf="prdName.errors?.['minlength']" id="helpId2" class="form-text text-muted d-block">Product Name must be 3 letters at least</small>
+      </div> -->
+    </div>
+    <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" [(ngModel)]="newPerson.mobileNumber" class="form-control" name="mobile" id="mobile"
+            placeholder="" required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="dob" class="form-label">Date Of Birth</label>
+        <input type="date" [(ngModel)]="newPerson.dateOfBirth" class="form-control" name="dob" id="dob"
+            placeholder="" required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" [(ngModel)]="newPerson.address" class="form-control" name="address" id="address"
+            placeholder="" required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" [(ngModel)]="newPerson.email" class="form-control" name="email" id="email" placeholder=""
+            required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" [(ngModel)]="newPerson.password" class="form-control" name="password" id="password" placeholder=""
+            required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" [(ngModel)]="newPerson.age" class="form-control" name="age" id="age" placeholder=""
+            required>
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="mb-3">
+        <label for="pImg" class="form-label" >Person Photo</label>
+        <input type="file" (change)="onFileChange($event)"
+          class="form-control" name="pImg" id="pImg" placeholder="" required >
+        <small id="helpId" class="form-text text-muted"></small>
+      </div>
+    <div class="mb-3">
+        <label for="depSel" class="form-label">Select Department</label>
+        <select class="form-control" [(ngModel)]="newPerson.department_Id" name="dept" id="depSel" title="department">
+            <option *ngFor="let dept of deptList" [value]="dept.id">{{dept.name}}</option>
+        </select>
+    </div>
+   
+    <div class="mb-3">
+        <label for="jobSel" class="form-label">Select Job Title</label>
+        <select class="form-control" [(ngModel)]="newPerson.job_Id" name="job" id="jobSel" title="Job title">
+            <option *ngFor="let job of jobList" [value]="job.id">{{job.name}}</option>
+        </select>
+    </div>
+  
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

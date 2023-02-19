@@ -1,0 +1,33 @@
+<button type="button" class="btn btn-primary" routerLink="/AddPerson"> add</button>
+      
+
+<table class="table table-striped"  id="datatablesSimple">
+    <thead>
+      <tr>
+        
+        <th scope="col">ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Age</th>
+      
+        <th scope="col"> Photo</th>
+        <th scope="col">Update</th>
+        <th scope="col"> Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let per of PersonList"  >
+      
+        <td>{{per.id}}</td>
+        <td> {{per.name}}</td>
+        <td> {{per.age}}</td>
+        
+        <td><img [src]="per.photo" alt="ImgPro" width="100px" height="100"> </td>
+        <td><a type="button" class="btn btn-primary"  routerLink="/UpdateProduct/{{per.id}}" > Update</a></td> 
+
+        <td><button type="button" class="btn btn-primary" (click)="DeletePerson(+per.id)"> Delete</button></td> 
+      
+      </tr>
+    </tbody>
+  </table>
+  
+  
